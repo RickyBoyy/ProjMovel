@@ -24,27 +24,27 @@ Apesar de estarem relacionadas á descodificação de informação em código, e
 
 As utilizações de scan na área de segurança servem para verificar, autorizar e autenticar acesso a sistemas ou áreas físicas, com base em informações específicas. 
 
-## Objetivos da Aplicação 
+### Objetivos da Aplicação 
 Com a nossa aplicação, nós pretendemos em facilitar a entrada rápida e útil em áreas físicas, sem que a pessoa em causa se preocupe com cartões ou com leitores lentos e inefetivos. Desejamos obter: 
 
-### Melhorar a Eficiência Operacional: 
+#### Melhorar a Eficiência Operacional: 
 Melhorar a circulação no dia-a-dia das empresas mais movimentadas e com um maior número de funcionários. 
 
-### Reduzir Custos:
+#### Reduzir Custos:
 Para evitar os custos na produção e renovação de cartões, a aplicação permite a interrupção no uso de cartões no geral. 
 
-### Cumprir com normas e regulamentos: 
+#### Cumprir com normas e regulamentos: 
 Assegurar que a organização está confortável consoante á segurança de informação. (Especialmente a empresas que necessitam cumprir requisitos específicos de segurança) 
  
-### Proteção de dados: 
+#### Proteção de dados: 
 Evitar “leaks” de informação e perda de cartões para garantir um ambiente de confiança entre os clientes e os funcionários. 
 
-### Analise de Segurança: 
+#### Analise de Segurança: 
 Analisar as configurações do sistema para garantir que estejam alinhadas com as melhores práticas de segurança e impedir possibilidades de exploração
 
-## Público-Alvo
+### Público-Alvo
 Com este projeto, nós planeamos em chamar a atenção de empresas que estão disponíveis a melhorar a sua segurança, ou então seguir um caminho mais digital do que o comum. A nossa aplicação tem como intenção ficar livre para todos os tipos de empresas, pois acreditamos que como se trata de uma questão de segurança, não devíamos limitar-nos a um público específico.  
 
 Não só destinado a empresas que estejam interessadas em segurança, como a empresas que querem melhorar a eficiência na circulação dos funcionários, pois em determinados casos o acesso rápido e prático é essencial. 
 
-## Ferramentas Existentes 
+### Ferramentas Existentes 
