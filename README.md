@@ -34,3 +34,7 @@ Com este projeto, nós planeamos em chamar a atenção de empresas que estão di
 Não só destinado a empresas que estejam interessadas em segurança, como a empresas que querem melhorar a eficiência na circulação dos funcionários, pois em determinados casos o acesso rápido e prático é essencial. 
 
 ### Ferramentas Existentes 
+#### Photomath
+#### QR Code Reader
+#### ShopSavvy
+#### Goodreads
