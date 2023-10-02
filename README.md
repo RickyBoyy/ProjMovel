@@ -1,7 +1,7 @@
 # ProjMovel
 
 
-## (Nome da Aplicação)
+## Q-Rity
 
 ### Enquadramento do Projeto 
 #### Código de Barras e Código QR: 
