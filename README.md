@@ -4,8 +4,8 @@
 ## Q-Rity
 
 ### Enquadramento do Projeto 
-#### Código de Barras e Código QR: 
-O projeto visa desenvolver uma aplicação móvel para melhorar a segurança no acesso a áreas autorizadas, substituindo cartões por códigos QR. O código QR é preferido devido à sua versatilidade e facilidade de leitura por aplicativos móveis, em comparação com os códigos de barras. Para evitar perda de dados e erros de leitura, os dados são redundantes no código QR, tornando-o adequado para aplicações críticas, como na indústria médica. Além disso, o código QR é rápido de ler devido à sua natureza bidimensional, não exigindo alinhamento preciso. Isso o torna eficaz em situações que exigem velocidade de resposta.
+#### Código QR: 
+O projeto visa desenvolver uma aplicação móvel para melhorar a segurança no acesso a áreas autorizadas, substituindo cartões por códigos QR. O código QR é preferido devido à sua versatilidade e facilidade de leitura por aplicativos móveis. Para evitar perda de dados e erros de leitura, os dados são redundantes no código QR, tornando-o adequado para aplicações críticas, como na indústria médica. Além disso, o código QR é rápido de ler devido à sua natureza bidimensional, não exigindo alinhamento preciso. Isso o torna eficaz em situações que exigem velocidade de resposta.
 
 #### Aplicativo de Scan (Scanner): 
 "Aplicativos de Scan" são programas que simplificam a leitura de diferentes tipos de códigos ou informações de várias fontes. Eles são usados para ler códigos QR, digitalizar documentos para melhorar sua qualidade, realizar o reconhecimento de texto (OCR) para converter texto impresso em texto digital editável e até mesmo identificar objetos e marcas de realidade para aplicativos de Realidade Aumentada (AR). Na área de segurança, esses aplicativos são usados para verificar, autorizar e autenticar o acesso a sistemas ou áreas com base em informações específicas.
