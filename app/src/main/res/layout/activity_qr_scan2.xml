@@ -11,7 +11,7 @@
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="    Acesso Autorizado!"
+        android:text="      Acesso Negado!"
         android:textSize="30dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="44dp"
