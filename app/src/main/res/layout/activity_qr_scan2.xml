@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QrScan">
+    >
 
     <TextView
         android:layout_width="323dp"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="      Acesso Negado!"
+        android:text="Negado!"
         android:textSize="30dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="178dp" />
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="181dp" />
 
     <ImageView
         android:id="@+id/imageView"

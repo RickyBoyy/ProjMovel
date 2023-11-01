@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Qrity"
         tools:targetApi="31">
         <activity
-            android:name=".QrScan"
+            android:name=".CameraScan"
             android:exported="false" />
 
         <activity
