@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/statistics"
+            android:icon="@drawable/baseline_query_stats_24"
+            android:title="Statistics"/>
+        <item android:id="@+id/workerlog"
+            android:icon="@drawable/baseline_admin_panel_settings_24"
+            android:title="WorkerLog"/>
+        <item android:id="@+id/notifications"
+            android:icon="@drawable/baseline_notifications_24"
+            android:title="Notifications"/>
+        <item android:id="@+id/scan"
+            android:icon="@drawable/baseline_qr_code_scanner_24"
+            android:title="Scan"/>
+        <item android:id="@+id/permission"
+            android:icon="@drawable/baseline_domain_verification_24"
+            android:title="Permission"/>
+
+    </group>
+</menu>
