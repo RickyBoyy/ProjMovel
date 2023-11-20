@@ -13,6 +13,12 @@
         android:theme="@style/Theme.QRity_admin"
         tools:targetApi="31">
         <activity
+            android:name=".ItemEditorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Permissions"
+            android:exported="false" />
+        <activity
             android:name=".PermissionsPage"
             android:exported="false" />
         <activity

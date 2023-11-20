@@ -24,6 +24,9 @@ public class Menu extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
 
+
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -61,16 +64,11 @@ public class Menu extends AppCompatActivity {
                     Toast.makeText(Menu.this, "Scan selected", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Menu.this, CameraScan.class);
                     startActivity(intent);
-                }
-                else if (id == R.id.permission) {
-                    Toast.makeText(Menu.this, "Scan selected", Toast.LENGTH_SHORT).show();
+                } else if (id == R.id.permission) {
+                    Toast.makeText(Menu.this, "Permission selected", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Menu.this, Permissions.class);
+                    startActivity(intent);
 
-                    List<Item> items = new ArrayList<Item>();
-                    
-                    RecyclerView recyclerView = findViewById(R.id.recyclerview);
-
-                    recyclerView.setLayoutManager(new LinearLayoutManager(Menu.this));
-                    recyclerView.setAdapter(new MyAdapter(getApplicationContext(),));
                 }
 
                 return false;
@@ -87,7 +85,11 @@ public class Menu extends AppCompatActivity {
         }
     }
 
+
 }
+
+
+
 
 
 
