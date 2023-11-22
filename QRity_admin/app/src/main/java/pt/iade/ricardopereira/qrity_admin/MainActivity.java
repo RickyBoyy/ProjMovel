@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Button;
+import android.content.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(username.getText().toString().equals("worker_name") && password.getText().toString().equals("worker_password")){
                     Toast.makeText(MainActivity.this, "Login Sucessful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, Menu.class);
-                    startActivity(intent);
+                    saveLoginState(String.valueOf(username));
+                    navigateToMenuActivity();
                 }else{
                     Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     username.setText("");
@@ -41,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void saveLoginState(String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", true);
+        editor.putString("username", username);
+        editor.apply();
+    }
+    private void navigateToMenuActivity(){
+
+        Intent intent = new Intent(MainActivity.this, Menu.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 }

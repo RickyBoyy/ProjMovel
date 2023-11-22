@@ -27,8 +27,6 @@ public class ItemEditorActivity extends AppCompatActivity {
         listPosition = intent.getIntExtra("position", -1);
 
 
-        item = (WorkerItem) intent.getIntExtra("door_name", );//falta busca do id da porta?
-
         setupComponents();
     }
 

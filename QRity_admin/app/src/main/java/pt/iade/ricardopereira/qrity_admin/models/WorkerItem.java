@@ -26,6 +26,10 @@ public class WorkerItem {
         return items;
     }
 
+    public static WorkerItem getById(int id){
+
+        return new WorkerItem(id, "Some worker from the server", "the role of the worker");
+    }
     public int getId() {
         return id;
     }
