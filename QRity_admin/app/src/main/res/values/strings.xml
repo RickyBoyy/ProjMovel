@@ -6,4 +6,5 @@
     <string name="new_worker_item">New worker</string>
     <string name="edit_perm_item">Workers</string>
     <string name="tittle_hint">worker_name</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
