@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -34,19 +35,19 @@ public class Notifications extends AppCompatActivity {
         List<NotificationItem> notificationItemList = getSampleNotifications();
 
 
-        notificationAdapter = new NotificationAdapter(notificationItemList);
+        notificationAdapter = new NotificationAdapter(this, getSampleNotifications());
         recyclerView.setAdapter(notificationAdapter);
 
 
 
 
-        }
-        private List<NotificationItem> getSampleNotifications() {
-            List<NotificationItem> notificationItemList = new ArrayList<>();
-            notificationItemList.add(new NotificationItem("worker_name", "door_name"));
-            notificationItemList.add(new NotificationItem("worker_name", "door_name"));
+    }
+    private List<NotificationItem> getSampleNotifications() {
+        List<NotificationItem> notificationItemList = new ArrayList<>();
+        notificationItemList.add(new NotificationItem("worker_name", "door_name", 1));
+        notificationItemList.add(new NotificationItem("worker_name", "door_name", 2));
 
-            return notificationItemList;
+        return notificationItemList;
     }
 
     private void setSupportActionBar(Toolbar toolbar) {

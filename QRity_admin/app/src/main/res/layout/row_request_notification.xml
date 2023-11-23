@@ -15,15 +15,17 @@
             android:id="@+id/title_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold"
-            android:text="Request" />
+            android:text="Request"
+            android:layout_gravity="start" />
 
         <TextView
             android:id="@+id/door_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Door: Some Door" />
+            android:text="Door: Some Door"
+            android:layout_gravity="start" />
 
     </LinearLayout>
 
@@ -32,19 +34,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/check_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/done"
             android:contentDescription="Check Mark" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/cross_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/close"
             android:contentDescription="Cross Mark" />
+
 
     </LinearLayout>
 

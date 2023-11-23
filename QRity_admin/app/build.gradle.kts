@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "pt.iade.ricardopereira.qrity_admin"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "pt.iade.ricardopereira.qrity_admin"
