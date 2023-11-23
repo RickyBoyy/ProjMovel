@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +20,13 @@ public class Permissions extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private PermissionsAdapter permissionsAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permissions);
 
-        Toolbar toolbar =  findViewById(R.id.toolbar_permissions);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar_permissions);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Permissions");
 
@@ -38,12 +39,9 @@ public class Permissions extends AppCompatActivity {
         recyclerView.setAdapter(permissionsAdapter);
 
 
-
-
-
-
         //get items from the server
     }
+
     private List<PermissionItem> getSamplePermissions() {
         List<PermissionItem> permissionItemList = new ArrayList<>();
         permissionItemList.add(new PermissionItem("door_name", "area_name", 1));
@@ -51,8 +49,6 @@ public class Permissions extends AppCompatActivity {
 
         return permissionItemList;
     }
-
-
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
 }
+
+

@@ -5,13 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pt.iade.ricardopereira.qrity_admin.adapters.WorkersAdapter;
-import pt.iade.ricardopereira.qrity_admin.models.PermissionItem;
 import pt.iade.ricardopereira.qrity_admin.models.WorkersItem;
 
 public class Workers extends AppCompatActivity {
@@ -19,12 +18,13 @@ public class Workers extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private WorkersAdapter workersAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workers);
 
-        Toolbar toolbar =  findViewById(R.id.toolbar_workers);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar_workers);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Workers");
 
@@ -46,6 +46,5 @@ public class Workers extends AppCompatActivity {
         return workersItemList;
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
 }
+
