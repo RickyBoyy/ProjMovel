@@ -32,7 +32,10 @@ public class Permissions extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewPermission);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<PermissionItem> permissionItemList = getSampleNotifications();
+        List<PermissionItem> permissionItemList = getSamplePermissions();
+
+        permissionsAdapter = new PermissionsAdapter(this, getSamplePermissions());
+        recyclerView.setAdapter(permissionsAdapter);
 
 
 
@@ -41,7 +44,7 @@ public class Permissions extends AppCompatActivity {
 
         //get items from the server
     }
-    private List<PermissionItem> getSampleNotifications() {
+    private List<PermissionItem> getSamplePermissions() {
         List<PermissionItem> permissionItemList = new ArrayList<>();
         permissionItemList.add(new PermissionItem("door_name", "area_name", 1));
         permissionItemList.add(new PermissionItem("door_name", "area_name", 2));

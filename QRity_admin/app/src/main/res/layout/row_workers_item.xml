@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="402dp"
-        android:layout_height="56dp"
+        android:layout_width="405dp"
+        android:layout_height="82dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
@@ -25,30 +25,23 @@
 
             <!-- Title TextView -->
             <TextView
-                android:id="@+id/door_name"
+                android:id="@+id/worker_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textSize="18sp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <!-- Subtitle TextView -->
             <TextView
-                android:id="@+id/area_name"
+                android:id="@+id/role_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/door_name"
+                android:layout_below="@id/worker_name"
                 android:text="Subtitle"
                 android:textSize="14sp" />
         </RelativeLayout>
 
-        <Switch
-            android:id="@+id/mySwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="43dp"
-            android:checked="false"
-            app:layout_constraintBaseline_toBaselineOf="@id/door_name"
-            app:layout_constraintStart_toEndOf="@id/door_name" />
 
     </LinearLayout>
 

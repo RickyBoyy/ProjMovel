@@ -7,4 +7,5 @@
     <string name="edit_perm_item">Workers</string>
     <string name="tittle_hint">worker_name</string>
     <string name="title_notifications">Notifications</string>
+    <string name="tittle_workers">Workers</string>
 </resources>
