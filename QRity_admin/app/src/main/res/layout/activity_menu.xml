@@ -6,13 +6,27 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".Menu">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="My Toolbar"
+        app:titleTextColor="@android:color/white"
+        app:subtitle="Subtitle"
+        app:subtitleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
-        android:id="@+id/nav_view"
-        android:layout_gravity="start"/>
+        android:id="@+id/nav_view">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
