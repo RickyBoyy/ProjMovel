@@ -38,3 +38,44 @@ Não só destinado a empresas que estejam interessadas em segurança, como a emp
 #### QR Code Reader
 #### ShopSavvy
 #### Goodreads
+
+
+## Dicionário de base dados
+
+### Utlizador
+#### utilizador_id: identificador principal de utilizadores
+#### utilizador_name: nome do utilizador (possivel futura mudança para uint devido a ser o numero de trabalhador da empresa)
+#### utiliza_password: password de um respetivo utilizador (atualmente int devido a ser um numero de entrada na empresa ou algo assim)
+
+### Cargo
+#### cargo_id: identificador principal dos cargos
+#### cargo_name: o nome do cargo
+
+### Limited_Access
+#### limited_access_id: identificador principal para os intervalos de tempo 
+#### limited_access_in: data de entrada(incluindo horas)
+#### limited_access_ou: data de saida(incluindo horas)
+
+### Door
+#### door_id: identificador principal das portas
+#### door_name: nome da porta
+#### door_area_id: foreign key que conecta a area_id da Areas
+
+### Areas
+#### area_id: identificador principal das areas
+#### area_name: nome da area
+
+### Mapping
+#### map_id: identificador da principal da combinação entre utilizador, cargo e limited_access
+#### user_id: foreign key que conecta a utilizador_id do Utilizador
+#### cargo_id: foreign key  que conecta a cargo_id da Cargo
+#### limited_access_id: foreign key que conecta a limited_access_id da Limited_Access
+
+### Area_Connector
+#### mapping_id: foreign key que conecta a mapping_id da Mapping
+#### area_id: foreign key que conecta a area_id da Areas
+
+### Log_Recorder
+#### user_id: foreign key que conecta a utilizador_id da Utilizador
+#### door_id: foreign key que conecta a door_id da Door
+#### log_time: o tempo recordado do uso da porta

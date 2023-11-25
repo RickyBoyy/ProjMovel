@@ -12,7 +12,7 @@ create table cargo(
 );
 		           
 create table limited_access (
-	limited_access_id int not null auto_increment,
+	limited_access_id int not null auto_increment primary key,
 	limited_access_in timestamp,
 	limited_access_ou timestamp
 					
@@ -35,9 +35,9 @@ create table areas (
 create table mapping (
 
 	map_id int not null auto_increment primary key,
-    user_id int,
-    cargo_id int,
-    limited_access_id int
+    	user_id int,
+    	cargo_id int,
+    	limited_access_id int
 
 );
 
