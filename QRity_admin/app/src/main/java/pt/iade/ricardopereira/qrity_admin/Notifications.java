@@ -44,13 +44,14 @@ public class Notifications extends AppCompatActivity {
     }
     private List<NotificationItem> getSampleNotifications() {
         List<NotificationItem> notificationItemList = new ArrayList<>();
-        notificationItemList.add(new NotificationItem("José Pinto", "Server Room", 1));
-        notificationItemList.add(new NotificationItem("Miguel Soares", "Rooftop", 2));
-        notificationItemList.add(new NotificationItem("Gonçalo Santos", "Basement", 3));
-        notificationItemList.add(new NotificationItem("Artur Morais", "Classroom A", 4));
-        notificationItemList.add(new NotificationItem("Fernando Almeida", "Photography Room", 5));
-        notificationItemList.add(new NotificationItem("Sandra Albuquerque", "Kitchen", 6));
-        notificationItemList.add(new NotificationItem("Maria Portugal", "Kitchen", 7));
+        notificationItemList.add(new NotificationItem("José Pinto", "Server Room", "Tech Office Building", 1));
+        notificationItemList.add(new NotificationItem("Miguel Soares", "Rooftop", "Art Building", 2));
+        notificationItemList.add(new NotificationItem("Gonçalo Santos", "Basement", "Main Building", 3));
+        notificationItemList.add(new NotificationItem("Artur Morais", "Classroom A", "Education Building", 4));
+        notificationItemList.add(new NotificationItem("Fernando Almeida", "Photography Room", "Art Building", 5));
+        notificationItemList.add(new NotificationItem("Sandra Albuquerque", "Kitchen", "Main Building", 6));
+        notificationItemList.add(new NotificationItem("Maria Portugal", "Kitchen", "Main Building", 7));
+        notificationItemList.add(new NotificationItem("Carlos Silva", "Conference Room", "Tech Office Building", 8));
 
         return notificationItemList;
     }

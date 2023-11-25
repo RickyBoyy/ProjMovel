@@ -8,6 +8,8 @@ public class NotificationItem {
 
     private String door;
 
+    private String area;
+
     private int id;
 
 
@@ -15,10 +17,11 @@ public class NotificationItem {
 
 
 
-    public NotificationItem(String request, String door, int id){
+    public NotificationItem(String request, String door, String area, int id){
 
         this.request = request;
         this.door = door;
+        this.area = area;
         this.id = id;
     }
 
@@ -48,5 +51,21 @@ public class NotificationItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRequest() {
+        return request;
+    }
+
+    public void setRequest(String request) {
+        this.request = request;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 }

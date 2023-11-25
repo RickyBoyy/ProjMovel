@@ -8,4 +8,5 @@
     <string name="tittle_hint">worker_name</string>
     <string name="title_notifications">Notifications</string>
     <string name="tittle_workers">Workers</string>
+    <string name="tittle_worker_log">Log History</string>
 </resources>

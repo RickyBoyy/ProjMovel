@@ -26,6 +26,12 @@
             android:layout_height="wrap_content"
             android:text="Door: Some Door"
             android:layout_gravity="start" />
+        <TextView
+            android:id="@+id/area_notification_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Area: Some Area"
+            android:layout_gravity="start"/>
 
     </LinearLayout>
 
