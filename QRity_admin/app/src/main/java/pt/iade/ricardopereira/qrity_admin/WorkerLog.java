@@ -19,13 +19,13 @@ public class WorkerLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_log);
 
-        // Assuming you have a RecyclerView in your activity_worker_log layout with id "recyclerView"
+
         RecyclerView recyclerView = findViewById(R.id.log_recycler);
 
         // Set up the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Create dummy data (replace this with your actual data)
+
         List<LogHistoryItem> logHistoryItemList = getDummyData();
 
         // Create an instance of the adapter

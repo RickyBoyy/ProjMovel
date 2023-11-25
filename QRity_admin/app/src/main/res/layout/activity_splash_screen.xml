@@ -8,4 +8,18 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/centeredImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="H,1:1"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
