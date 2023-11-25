@@ -2,7 +2,9 @@ package pt.iade.ricardopereira.qrity_admin.models;
 
 import android.widget.TextView;
 
-public class PermissionItem {
+import java.io.Serializable;
+
+public class PermissionItem implements Serializable {
 
 
     private String door_name;

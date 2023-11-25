@@ -39,7 +39,7 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
 
         // Set data to views in the ViewHolder
         holder.worker_name.setText(workersItem.getWorker_name());
-        holder.role.setText("Area: " + workersItem.getRole());
+        holder.role.setText("Cargo: " + workersItem.getRole());
         // You can add more fields based on your PermissionItem model
     }
 

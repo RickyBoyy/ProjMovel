@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -37,6 +40,15 @@ public class Permissions extends AppCompatActivity {
 
         permissionsAdapter = new PermissionsAdapter(this, getSamplePermissions());
         recyclerView.setAdapter(permissionsAdapter);
+        permissionsAdapter.setOnClickListener(new PermissionsAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(Permissions.this, Workers.class);
+                intent.putExtra("selectedDoor", permissionItemList.get(position));
+                startActivity(intent);
+            }
+        });
+
 
 
         //get items from the server
@@ -44,8 +56,14 @@ public class Permissions extends AppCompatActivity {
 
     private List<PermissionItem> getSamplePermissions() {
         List<PermissionItem> permissionItemList = new ArrayList<>();
-        permissionItemList.add(new PermissionItem("door_name", "area_name", 1));
-        permissionItemList.add(new PermissionItem("door_name", "area_name", 2));
+        permissionItemList.add(new PermissionItem("Server Room", "Tech Floor", 1));
+        permissionItemList.add(new PermissionItem("Rooftop", "6th floor", 2));
+        permissionItemList.add(new PermissionItem("Basement", "Main Lobby", 3));
+        permissionItemList.add(new PermissionItem("Classroom A", "1st floor", 4));
+        permissionItemList.add(new PermissionItem("Kitchen", "Main Lobby", 5));
+        permissionItemList.add(new PermissionItem("Photography Room", "Basement", 6));
+        permissionItemList.add(new PermissionItem("Archive Room", "5th floor", 7));
+
 
         return permissionItemList;
     }

@@ -17,10 +17,16 @@ import pt.iade.ricardopereira.qrity_admin.models.PermissionItem;
 public class PermissionsAdapter extends RecyclerView.Adapter<PermissionsAdapter.ViewHolder> {
     private List<PermissionItem> permissionItemList;
     private Context context;
+    public ItemClickListener clickListener;
 
     public PermissionsAdapter(Context context, List<PermissionItem> permissionItemList) {
         this.context = context;
         this.permissionItemList = permissionItemList;
+        clickListener = null;
+    }
+
+    public void setOnClickListener(ItemClickListener listener){
+        clickListener = listener;
     }
 
     @NonNull
@@ -47,7 +53,7 @@ public class PermissionsAdapter extends RecyclerView.Adapter<PermissionsAdapter.
         return permissionItemList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         public TextView door_name;
 
         public TextView area;
@@ -59,7 +65,22 @@ public class PermissionsAdapter extends RecyclerView.Adapter<PermissionsAdapter.
             // Initialize views from the layout
             door_name= itemView.findViewById(R.id.door_name);
             area =  itemView.findViewById(R.id.area_name);
+
+            itemView.setOnClickListener(this);
             // Initialize other views based on your PermissionItem model
         }
+        @Override
+        public void onClick(View view){
+            if(clickListener != null){
+
+                clickListener.onItemClick(view, getAdapterPosition());
+            }
+
+        }
+    }
+
+    public interface ItemClickListener{
+
+        void onItemClick(View view, int position);
     }
 }

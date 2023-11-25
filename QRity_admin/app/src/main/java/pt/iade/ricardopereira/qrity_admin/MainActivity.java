@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("worker_name") && password.getText().toString().equals("worker_password")){
+                if(username.getText().toString().equals("admin") && password.getText().toString().equals("password")){
                     Toast.makeText(MainActivity.this, "Login Sucessful", Toast.LENGTH_SHORT).show();
                     saveLoginState(String.valueOf(username));
                     navigateToMenuActivity();
