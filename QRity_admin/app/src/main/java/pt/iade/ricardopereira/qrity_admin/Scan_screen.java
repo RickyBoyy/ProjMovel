@@ -1,44 +1,43 @@
 package pt.iade.ricardopereira.qrity_admin;
 
+
 import android.os.Bundle;
 
-
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import android.content.Intent;
-
-import androidx.annotation.Nullable;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 public class Scan_screen extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Inicia o scanner
-        new IntentIntegrator(this).initiateScan();
+
+        // Call scanCode method directly when the activity is created
+        scanCode();
     }
 
-    // Método chamado após o resultado do scan
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private void scanCode() {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLauncher.launch(options);
+    }
 
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            if (result.getContents() != null) {
-                // O resultado do scan está em result.getContents()
-                String scannedData = result.getContents();
-                // Faça o que você precisa com os dados escaneados
-            } else {
-                // Se o usuário cancelar o scan
-                // Faça algo aqui, se necessário
-            }
-            finish(); // Encerra a atividade após o scan
+    ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
+        if (result.getContents() != null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Scan_screen.this);
+            builder.setTitle("Result");
+            builder.setMessage(result.getContents());
+            builder.setPositiveButton("Authorized", (dialogInterface, i) -> dialogInterface.dismiss()).show();
         }
-    }
+    });
+
+
 }
