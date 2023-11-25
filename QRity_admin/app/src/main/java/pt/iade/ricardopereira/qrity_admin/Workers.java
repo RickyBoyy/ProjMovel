@@ -40,8 +40,13 @@ public class Workers extends AppCompatActivity {
     private List<WorkersItem> getSampleWorkers() {
 
         List<WorkersItem> workersItemList = new ArrayList<>();
-        workersItemList.add(new WorkersItem("Trabalhador 1", "Professor", 1));
-        workersItemList.add(new WorkersItem("Trabalhador 2", "Coordenador", 2));
+        workersItemList.add(new WorkersItem("João Silva", "Professor", 1));
+        workersItemList.add(new WorkersItem("Maria Santos", "Coordenador", 2));
+        workersItemList.add(new WorkersItem("Pedro Oliveira", "Assistente", 3));
+        workersItemList.add(new WorkersItem("Ana Costa", "Técnico", 4));
+        workersItemList.add(new WorkersItem("Miguel Ferreira", "Pesquisador", 5));
+        workersItemList.add(new WorkersItem("Sofia Rocha", "Analista", 6));
+        workersItemList.add(new WorkersItem("Carlos Pereira", "Engenheiro", 7));
 
         return workersItemList;
     }

@@ -59,7 +59,7 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
 
             // Initialize views from the layout
             worker_name= itemView.findViewById(R.id.worker_name);
-            role =  itemView.findViewById(R.id.role_name);
+            role =  itemView.findViewById(R.id.role);
             // Initialize other views based on your PermissionItem model
         }
     }
