@@ -50,7 +50,6 @@ public class Permissions extends AppCompatActivity {
         });
 
 
-
         //get items from the server
     }
 

@@ -44,6 +44,7 @@
                 android:id="@+id/mostUsedDoor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="4"
                 android:layout_weight="1"/>
         </LinearLayout>
 
@@ -64,6 +65,7 @@
                 android:id="@+id/lessUsedDoor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="33"
                 android:layout_weight="1"/>
         </LinearLayout>
 
@@ -84,6 +86,7 @@
                 android:id="@+id/moreDoorsRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="Segurança"
                 android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
@@ -102,6 +105,7 @@
             android:id="@+id/lessDoorsRole"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="Administrador"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -121,6 +125,7 @@
                 android:id="@+id/averageDoors"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="4"
                 android:layout_weight="1"/>
 
 

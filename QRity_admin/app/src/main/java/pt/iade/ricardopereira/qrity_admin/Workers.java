@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -35,8 +38,27 @@ public class Workers extends AppCompatActivity {
         workersAdapter = new WorkersAdapter(this, getSampleWorkers());
         recyclerView.setAdapter(workersAdapter);
 
+
+
+    }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.worker_menu, menu);
+        return super.onPrepareOptionsMenu(menu);
     }
 
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.addWorker) {
+
+
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     private List<WorkersItem> getSampleWorkers() {
 
         List<WorkersItem> workersItemList = new ArrayList<>();

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.QRity_admin"
         tools:targetApi="31">
         <activity
+            android:name=".AddWorker"
+            android:exported="false" />
+        <activity
             android:name=".Statistics"
             android:exported="false" />
         <activity
@@ -49,7 +52,7 @@
             android:theme="@style/zxing_CaptureTheme" />
         <activity
             android:name=".Scan_screen"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>
