@@ -61,7 +61,7 @@ public class Workers extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.addWorker) {
-            setupPopUpCustom(findViewById(R.id.addWorker));
+
             return true;
 
 
@@ -83,17 +83,16 @@ public class Workers extends AppCompatActivity {
         return workersItemList;
     }
 
-    public void setupPopUpCustom(View anchorview){
+    /*public void setupPopUpCustom(View anchorview){
 
         PopupWindow popupWindow = new PopupWindow(this);
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_search, null);
         popupWindow.setContentView(popupView);
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int screenWidth = displayMetrics.widthPixels;
-        int screenHeight = displayMetrics.heightPixels;
-        popupWindow.setWidth(screenWidth);
-        popupWindow.setHeight(screenHeight);
+        int popupSize = getResources().getDimensionPixelSize(R.dimen.popup_size); // Define the size in resources
+        popupWindow.setWidth(popupSize);
+        popupWindow.setHeight(popupSize);
+
+
         popupWindow.setFocusable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -111,7 +110,7 @@ public class Workers extends AppCompatActivity {
         popupWindow.showAtLocation(anchorview, Gravity.CENTER, 0, 0);
 
 
-    }
+    }*/
 
 }
 

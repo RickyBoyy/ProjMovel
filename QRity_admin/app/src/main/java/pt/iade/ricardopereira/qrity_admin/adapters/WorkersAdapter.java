@@ -47,6 +47,10 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
     public int getItemCount() {
         return workersItemList.size();
     }
+    public void setWorkersList(List<WorkersItem> workersList) {
+        this.workersItemList = workersList;
+        notifyDataSetChanged();
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView worker_name;
