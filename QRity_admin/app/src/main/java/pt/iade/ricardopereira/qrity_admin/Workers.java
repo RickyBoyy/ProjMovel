@@ -4,9 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -51,8 +61,8 @@ public class Workers extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.addWorker) {
-
-
+            setupPopUpCustom(findViewById(R.id.addWorker));
+            return true;
 
 
         }
@@ -71,6 +81,36 @@ public class Workers extends AppCompatActivity {
         workersItemList.add(new WorkersItem("Carlos Pereira", "Engenheiro", 7));
 
         return workersItemList;
+    }
+
+    public void setupPopUpCustom(View anchorview){
+
+        PopupWindow popupWindow = new PopupWindow(this);
+        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_search, null);
+        popupWindow.setContentView(popupView);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenWidth = displayMetrics.widthPixels;
+        int screenHeight = displayMetrics.heightPixels;
+        popupWindow.setWidth(screenWidth);
+        popupWindow.setHeight(screenHeight);
+        popupWindow.setFocusable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        TextView titleTextView = popupView.findViewById(R.id.popupTitle);
+        titleTextView.setText("Search Worker");
+
+        Button closeButton = popupView.findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        popupWindow.showAtLocation(anchorview, Gravity.CENTER, 0, 0);
+
+
     }
 
 }
