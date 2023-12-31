@@ -2,13 +2,17 @@ package pt.iade.ricardopereira.qrity_admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.SearchView;
+import android.view.View;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import pt.iade.ricardopereira.qrity_admin.adapters.PermissionsAdapter;
+import pt.iade.ricardopereira.qrity_admin.adapters.SearchWorkerAdapter;
 import pt.iade.ricardopereira.qrity_admin.adapters.WorkersAdapter;
 import pt.iade.ricardopereira.qrity_admin.databinding.ActivityMainBinding;
 import pt.iade.ricardopereira.qrity_admin.databinding.ActivitySearchWorkerBinding;
@@ -21,16 +25,22 @@ public class SearchWorker extends AppCompatActivity {
 
     private ActivitySearchWorkerBinding binding;
     private RecyclerView recyclerView;
-    private WorkersAdapter workerAdapter;
+    private SearchWorkerAdapter searchWorkerAdapter;
+
     private ArrayList<WorkersItem> allWorkers;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_worker);
+        setupComponents();
+        allWorkers = (ArrayList<WorkersItem>) getSampleWorkers();
+        initSearchView();
     }
+
     private void initSearchView() {
-        SearchView searchView = findViewById(R.id.searchView);
+        androidx.appcompat.widget.SearchView searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -44,6 +54,7 @@ public class SearchWorker extends AppCompatActivity {
             }
         });
     }
+
     private void filterWorkers(String query) {
         ArrayList<WorkersItem> filteredList = new ArrayList<>();
 
@@ -55,14 +66,47 @@ public class SearchWorker extends AppCompatActivity {
             }
         }
 
-        workerAdapter.setWorkersList(filteredList);
+        searchWorkerAdapter.setSearchWorkersItemList(filteredList);
     }
 
-    private void setupComponents(){
+    private void setupComponents() {
         recyclerView = findViewById(R.id.userList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        workerAdapter = new WorkersAdapter(this, new ArrayList<>());
-        recyclerView.setAdapter(workerAdapter);
+        searchWorkerAdapter = new SearchWorkerAdapter(this, getSampleWorkers());
+        recyclerView.setAdapter(searchWorkerAdapter);
     }
 
+    private List<WorkersItem> getSampleWorkers() {
+        List<WorkersItem> workersItemList = new ArrayList<>();
+        workersItemList.add(new WorkersItem("João Silva", "Professor", 1));
+        workersItemList.add(new WorkersItem("Maria Santos", "Coordenador", 2));
+        workersItemList.add(new WorkersItem("Pedro Oliveira", "Assistente", 3));
+        workersItemList.add(new WorkersItem("Ana Costa", "Técnico", 4));
+        workersItemList.add(new WorkersItem("Miguel Ferreira", "Pesquisador", 5));
+        workersItemList.add(new WorkersItem("Sofia Rocha", "Analista", 6));
+        workersItemList.add(new WorkersItem("Carlos Pereira", "Engenheiro", 7));
+
+        return workersItemList;
+    }
 }
+
+       /* searchWorkerAdapter.setOnClickListener(new SearchWorkerAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, WorkersItem selectedWorker) {
+                addWorkertoPreviousActivity(selectedWorker);
+            }
+
+
+        });
+
+
+        }
+        private void addWorkertoPreviousActivity(WorkersItem workersItem){
+            if(workersAdapter != null){
+               workersAdapter.addItem(workersItem);
+            }
+        }
+
+    }*/
+
+

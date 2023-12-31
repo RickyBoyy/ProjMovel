@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 import pt.iade.ricardopereira.qrity_admin.R;
 import pt.iade.ricardopereira.qrity_admin.models.PermissionItem;
 import pt.iade.ricardopereira.qrity_admin.models.WorkersItem;
 
-public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHolder> {
+public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHolder> implements Serializable {
     private List<WorkersItem> workersItemList;
     private Context context;
 
@@ -35,7 +37,7 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull WorkersAdapter.ViewHolder holder, int position) {
-       WorkersItem workersItem = workersItemList.get(position);
+        WorkersItem workersItem = workersItemList.get(position);
 
         // Set data to views in the ViewHolder
         holder.worker_name.setText(workersItem.getWorker_name());
@@ -47,9 +49,17 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
     public int getItemCount() {
         return workersItemList.size();
     }
+
     public void setWorkersList(List<WorkersItem> workersList) {
         this.workersItemList = workersList;
         notifyDataSetChanged();
+    }
+
+    public void addItem(WorkersItem workersItem) {
+        workersItemList.add(workersItem);
+
+        // Notify the adapter that a new item has been added
+        notifyItemInserted(workersItemList.size() - 1);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -62,9 +72,13 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
             super(itemView);
 
             // Initialize views from the layout
-            worker_name= itemView.findViewById(R.id.worker_name);
-            role =  itemView.findViewById(R.id.role);
+            worker_name = itemView.findViewById(R.id.worker_name);
+            role = itemView.findViewById(R.id.role);
             // Initialize other views based on your PermissionItem model
         }
+
+
+
+
     }
 }

@@ -72,7 +72,7 @@ public class WorkersItem {
                     response.response(items);
 
                 } catch (Exception e) {
-                    Log.e("NoteItem", e.toString());
+                    Log.e("LogItem", e.toString());
                 }
             }
         });
