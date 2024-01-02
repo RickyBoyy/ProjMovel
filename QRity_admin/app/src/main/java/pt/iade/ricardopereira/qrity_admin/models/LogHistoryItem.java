@@ -1,32 +1,31 @@
 package pt.iade.ricardopereira.qrity_admin.models;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import pt.iade.ricardopereira.qrity_admin.utilities.WebRequest;
 
 public class LogHistoryItem {
+    private int id;
     private String worker;
 
     private String door;
 
     private String area;
 
-    private String timestamp;
+    private Calendar timestamp;
 
 
+    public LogHistoryItem(int id, String worker, String door, String area, Calendar timestamp) {
 
 
-
-
-
-
-    public LogHistoryItem(String worker, String door, String area, String timestamp){
-
+        this.id = id;
         this.worker = worker;
         this.door = door;
         this.area = area;
@@ -59,17 +58,29 @@ public class LogHistoryItem {
         this.area = area;
     }
 
-    public String getTimestamp() {
+    public Calendar getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTimestamp(Calendar timestamp) {
         this.timestamp = timestamp;
     }
 
 
     public interface ListResponse {
         public void response(ArrayList<LogHistoryItem> items);
+    }
+    public interface GetByIdResponse {
+        public void response(LogHistoryItem item);
     }
     public static void List(LogHistoryItem.ListResponse response) {
         //Fetch a list of items from the web server and populate the list with them
@@ -94,6 +105,31 @@ public class LogHistoryItem {
 
                 } catch (Exception e) {
                     Log.e("LogItem", e.toString());
+                }
+            }
+        });
+        thread.start();
+    }
+
+    public static void GetById(int id, GetByIdResponse response) {
+        // Fetch the item from the web server using its id and populate the object.
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    try {
+                        WebRequest req = new WebRequest(new URL(
+                                WebRequest.LOCALHOST + "/loghistory/" + id));
+                        String resp = req.performGetRequest();
+
+                        response.response(new Gson().fromJson(resp, LogHistoryItem.class));
+                    } catch (Exception e) {
+                        Toast.makeText(null, "Web request failed: " + e.toString(),
+                                Toast.LENGTH_LONG).show();
+                        Log.e("TodoItem", e.toString());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

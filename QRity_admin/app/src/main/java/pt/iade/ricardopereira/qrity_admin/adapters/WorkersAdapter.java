@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import pt.iade.ricardopereira.qrity_admin.R;
@@ -18,10 +19,10 @@ import pt.iade.ricardopereira.qrity_admin.models.PermissionItem;
 import pt.iade.ricardopereira.qrity_admin.models.WorkersItem;
 
 public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHolder> implements Serializable {
-    private List<WorkersItem> workersItemList;
+    private ArrayList<WorkersItem> workersItemList;
     private Context context;
 
-    public WorkersAdapter(Context context, List<WorkersItem> workersItemList) {
+    public WorkersAdapter(Context context, ArrayList<WorkersItem> workersItemList) {
         this.context = context;
         this.workersItemList = workersItemList;
     }
@@ -50,13 +51,14 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.ViewHold
         return workersItemList.size();
     }
 
-    public void setWorkersList(List<WorkersItem> workersList) {
+    public void setWorkersList(ArrayList<WorkersItem> workersList) {
         this.workersItemList = workersList;
         notifyDataSetChanged();
     }
 
     public void addItem(WorkersItem workersItem) {
         workersItemList.add(workersItem);
+        notifyDataSetChanged();
 
         // Notify the adapter that a new item has been added
         notifyItemInserted(workersItemList.size() - 1);

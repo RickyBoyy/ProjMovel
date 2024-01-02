@@ -39,7 +39,7 @@ public class LogHistoryAdapter extends RecyclerView.Adapter<LogHistoryAdapter.Lo
         holder.workerTextView.setText(logHistoryItem.getWorker());
         holder.doorTextView.setText(logHistoryItem.getDoor());
         holder.areaTextView.setText(logHistoryItem.getArea());
-        holder.timestampTextView.setText(logHistoryItem.getTimestamp());
+
     }
 
     @Override
@@ -57,7 +57,7 @@ public class LogHistoryAdapter extends RecyclerView.Adapter<LogHistoryAdapter.Lo
             workerTextView = itemView.findViewById(R.id.worker_log_name);
             doorTextView = itemView.findViewById(R.id.door_log_name);
             areaTextView = itemView.findViewById(R.id.area_log_name);
-            timestampTextView = itemView.findViewById(R.id.log_timestamp);
+
         }
     }
 }

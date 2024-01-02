@@ -9,17 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pt.iade.ricardopereira.qrity_admin.R;
 import pt.iade.ricardopereira.qrity_admin.models.WorkersItem;
 
 public class SearchWorkerAdapter extends RecyclerView.Adapter<SearchWorkerAdapter.ViewHolder> {
-    private List<WorkersItem> searchWorkersItemList;
+    private ArrayList<WorkersItem> searchWorkersItemList;
     private Context context;
     public ItemClickListener clickListener;
 
-    public SearchWorkerAdapter(Context context, List<WorkersItem> searchWorkersItemList) {
+    public SearchWorkerAdapter(Context context, ArrayList<WorkersItem> searchWorkersItemList) {
         this.context = context;
         this.searchWorkersItemList = searchWorkersItemList;
     }
@@ -40,6 +41,8 @@ public class SearchWorkerAdapter extends RecyclerView.Adapter<SearchWorkerAdapte
         // Set data to views in the ViewHolder
         holder.worker_name.setText(workersItem.getWorker_name());
         holder.role.setText("Cargo: " + workersItem.getRole());
+
+
         // You can add more fields based on your PermissionItem model
     }
     public void setOnClickListener(ItemClickListener listener){
@@ -50,7 +53,7 @@ public class SearchWorkerAdapter extends RecyclerView.Adapter<SearchWorkerAdapte
     public int getItemCount() {
         return searchWorkersItemList.size();
     }
-    public void setSearchWorkersItemList(List<WorkersItem> searchWorkersItemList) {
+    public void setSearchWorkersItemList(ArrayList<WorkersItem> searchWorkersItemList) {
         this.searchWorkersItemList = searchWorkersItemList;
         notifyDataSetChanged();
     }

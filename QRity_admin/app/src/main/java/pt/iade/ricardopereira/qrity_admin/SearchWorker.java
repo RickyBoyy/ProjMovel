@@ -74,10 +74,22 @@ public class SearchWorker extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         searchWorkerAdapter = new SearchWorkerAdapter(this, getSampleWorkers());
         recyclerView.setAdapter(searchWorkerAdapter);
+        searchWorkerAdapter.setOnClickListener(new SearchWorkerAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, WorkersItem selectedWorker) {
+                Bundle bundle = new Bundle();
+                bundle.putStringArray("arrayOfName", new String[]{selectedWorker.getWorker_name()});
+                bundle.putStringArray("arrayOfCargos", new String[]{selectedWorker.getRole()});
+                Intent resultIntent = new Intent();
+                resultIntent.putExtras(bundle);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
     }
 
-    private List<WorkersItem> getSampleWorkers() {
-        List<WorkersItem> workersItemList = new ArrayList<>();
+    private ArrayList<WorkersItem> getSampleWorkers() {
+        ArrayList<WorkersItem> workersItemList = new ArrayList<>();
         workersItemList.add(new WorkersItem("João Silva", "Professor", 1));
         workersItemList.add(new WorkersItem("Maria Santos", "Coordenador", 2));
         workersItemList.add(new WorkersItem("Pedro Oliveira", "Assistente", 3));

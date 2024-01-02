@@ -1,6 +1,7 @@
 package pt.iade.ricardopereira.qrity_admin;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,6 +20,7 @@ public class Scan_screen extends AppCompatActivity {
 
         // Call scanCode method directly when the activity is created
         scanCode();
+
     }
 
     private void scanCode() {
@@ -36,6 +38,8 @@ public class Scan_screen extends AppCompatActivity {
             builder.setTitle("Result");
             builder.setMessage(result.getContents());
             builder.setPositiveButton("Authorized", (dialogInterface, i) -> dialogInterface.dismiss()).show();
+            Intent intent = new Intent(Scan_screen.this, Menu.class);
+            startActivity(intent);
         }
     });
 

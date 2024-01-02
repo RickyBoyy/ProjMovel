@@ -1,5 +1,6 @@
 package pt.iade.ricardopereira.qrity_admin;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +31,7 @@ import pt.iade.ricardopereira.qrity_admin.adapters.WorkersAdapter;
 import pt.iade.ricardopereira.qrity_admin.models.WorkersItem;
 
 public class Workers extends AppCompatActivity {
-
+    private static final int SEARCH_WORKER_ACTIVITY_RETURN_ID = 1;
     private RecyclerView recyclerView;
 
     private WorkersAdapter workersAdapter;
@@ -47,13 +48,13 @@ public class Workers extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycleViewWorkers);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<WorkersItem> workersItemList = getSampleWorkers();
+        ArrayList<WorkersItem> workersItemList = getSampleWorkers();
         workersAdapter = new WorkersAdapter(this, getSampleWorkers());
         recyclerView.setAdapter(workersAdapter);
 
 
-
     }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.worker_menu, menu);
@@ -75,9 +76,10 @@ public class Workers extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    private List<WorkersItem> getSampleWorkers() {
 
-        List<WorkersItem> workersItemList = new ArrayList<>();
+    private ArrayList<WorkersItem> getSampleWorkers() {
+
+        ArrayList<WorkersItem> workersItemList = new ArrayList<>();
         workersItemList.add(new WorkersItem("João Silva", "Professor", 1));
         workersItemList.add(new WorkersItem("Maria Santos", "Coordenador", 2));
         workersItemList.add(new WorkersItem("Pedro Oliveira", "Assistente", 3));
@@ -88,6 +90,31 @@ public class Workers extends AppCompatActivity {
 
         return workersItemList;
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // Must be called always and before everything.
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Check which activity returned to us.
+        if (requestCode == SEARCH_WORKER_ACTIVITY_RETURN_ID) {
+            // Check if the activity was successful.
+            if (resultCode == AppCompatActivity.RESULT_OK && data != null) {
+                // Get extras returned to us.
+                String[] names = data.getStringArrayExtra("arrayOfName");
+                String[] cargos = data.getStringArrayExtra("arrayOfCargos");
+
+                // Use the data as needed
+                // For example, you might add a new WorkerItem to the list
+                if (names != null && cargos != null && names.length > 0 && cargos.length > 0) {
+                    WorkersItem newWorker = new WorkersItem(names[0], cargos[0], 0); // You might want to provide a unique ID
+                    workersAdapter.addItem(newWorker);
+                }
+            }
+        }
+    }
+
 
     /*public void setupPopUpCustom(View anchorview){
 
@@ -118,5 +145,7 @@ public class Workers extends AppCompatActivity {
 
     }*/
 
-}
+    }
+
+
 

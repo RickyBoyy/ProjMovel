@@ -29,6 +29,26 @@ public class Permissions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permissions);
 
+        setupcomponentsPermissions();
+
+
+        //get items from the server
+    }
+
+    private List<PermissionItem> getSamplePermissions() {
+        List<PermissionItem> permissionItemList = new ArrayList<>();
+        permissionItemList.add(new PermissionItem("Server Room", "Tech Floor", 1));
+        permissionItemList.add(new PermissionItem("Rooftop", "6th floor", 2));
+        permissionItemList.add(new PermissionItem("Basement", "Main Lobby", 3));
+        permissionItemList.add(new PermissionItem("Classroom A", "1st floor", 4));
+        permissionItemList.add(new PermissionItem("Kitchen", "Main Lobby", 5));
+        permissionItemList.add(new PermissionItem("Photography Room", "Basement", 6));
+        permissionItemList.add(new PermissionItem("Archive Room", "5th floor", 7));
+
+
+        return permissionItemList;
+    }
+    private void setupcomponentsPermissions(){
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar_permissions);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Permissions");
@@ -49,22 +69,6 @@ public class Permissions extends AppCompatActivity {
             }
         });
 
-
-        //get items from the server
-    }
-
-    private List<PermissionItem> getSamplePermissions() {
-        List<PermissionItem> permissionItemList = new ArrayList<>();
-        permissionItemList.add(new PermissionItem("Server Room", "Tech Floor", 1));
-        permissionItemList.add(new PermissionItem("Rooftop", "6th floor", 2));
-        permissionItemList.add(new PermissionItem("Basement", "Main Lobby", 3));
-        permissionItemList.add(new PermissionItem("Classroom A", "1st floor", 4));
-        permissionItemList.add(new PermissionItem("Kitchen", "Main Lobby", 5));
-        permissionItemList.add(new PermissionItem("Photography Room", "Basement", 6));
-        permissionItemList.add(new PermissionItem("Archive Room", "5th floor", 7));
-
-
-        return permissionItemList;
     }
 }
 
