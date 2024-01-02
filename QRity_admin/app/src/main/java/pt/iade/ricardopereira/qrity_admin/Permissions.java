@@ -37,13 +37,13 @@ public class Permissions extends AppCompatActivity {
 
     private List<PermissionItem> getSamplePermissions() {
         List<PermissionItem> permissionItemList = new ArrayList<>();
-        permissionItemList.add(new PermissionItem("Server Room", "Tech Floor", 1));
-        permissionItemList.add(new PermissionItem("Rooftop", "6th floor", 2));
-        permissionItemList.add(new PermissionItem("Basement", "Main Lobby", 3));
-        permissionItemList.add(new PermissionItem("Classroom A", "1st floor", 4));
-        permissionItemList.add(new PermissionItem("Kitchen", "Main Lobby", 5));
-        permissionItemList.add(new PermissionItem("Photography Room", "Basement", 6));
-        permissionItemList.add(new PermissionItem("Archive Room", "5th floor", 7));
+        permissionItemList.add(new PermissionItem("Server Room",  1));
+        permissionItemList.add(new PermissionItem("Rooftop",  2));
+        permissionItemList.add(new PermissionItem("Basement",  3));
+        permissionItemList.add(new PermissionItem("Classroom A",  4));
+        permissionItemList.add(new PermissionItem("Kitchen",  5));
+        permissionItemList.add(new PermissionItem("Photography Room",  6));
+        permissionItemList.add(new PermissionItem("Archive Room",  7));
 
 
         return permissionItemList;

@@ -11,12 +11,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/door_name"
+            android:id="@+id/door_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:text="Door"
+            android:text="Area"
             android:layout_gravity="start" />
 
 

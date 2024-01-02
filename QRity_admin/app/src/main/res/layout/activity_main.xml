@@ -71,6 +71,7 @@
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/black"
                 android:hint="Username"
+                android:inputType="text"
                 android:paddingStart="10dp" />
 
 
@@ -86,6 +87,7 @@
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/black"
                 android:hint="Password"
+                android:inputType="text"
                 android:paddingStart="10dp" />
 
             <TextView

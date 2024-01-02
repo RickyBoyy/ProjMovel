@@ -81,7 +81,7 @@ public class Menu extends AppCompatActivity {
 
                 {
                     Toast.makeText(Menu.this, "Permission selected", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Menu.this, Permissions.class);
+                    Intent intent = new Intent(Menu.this, PermissionsAreas.class);
                     startActivity(intent);
 
 
