@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <!-- Toolbar -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_notifications"
         android:layout_width="match_parent"
@@ -12,6 +13,7 @@
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme"
         app:title="@string/title_notifications" />
+
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView

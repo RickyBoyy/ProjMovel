@@ -19,6 +19,11 @@
         app:title="@string/permission_door"
         app:titleTextColor="@color/black" />
 
+
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPermission"
         android:layout_width="0dp"
@@ -27,5 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_permissions" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
