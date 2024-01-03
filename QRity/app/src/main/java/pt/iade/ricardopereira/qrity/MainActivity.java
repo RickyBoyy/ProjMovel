@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            if(username.getText().toString().equals("worker_name") && password.getText().toString().equals("worker_password")){
+            if(username.getText().toString().equals("user") && password.getText().toString().equals("password")){
                 Toast.makeText(MainActivity.this, "Login Sucessful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this,CameraScan.class);
                 startActivity(intent);

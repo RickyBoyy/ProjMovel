@@ -48,7 +48,7 @@ public class Scan_screen extends AppCompatActivity {
         builder.setMessage(contents);
         builder.setPositiveButton("Authorized", (dialogInterface, i) ->{
 
-                
+
                 dialogInterface.dismiss();
                 finish();
         }).show();

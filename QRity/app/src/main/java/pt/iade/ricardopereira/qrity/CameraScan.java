@@ -28,10 +28,21 @@ public class CameraScan extends AppCompatActivity {
 
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
         if (result.getContents() != null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(CameraScan.this);
-            builder.setTitle("Result");
-            builder.setMessage(result.getContents());
-            builder.setPositiveButton("Authorized", (dialogInterface, i) -> dialogInterface.dismiss()).show();
+            showResultDialog(result.getContents());
+
         }
+
     });
+    private void showResultDialog(String contents) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CameraScan.this);
+        builder.setTitle("Result");
+        builder.setMessage(contents);
+        builder.setPositiveButton("Authorized", (dialogInterface, i) ->{
+
+
+            dialogInterface.dismiss();
+
+        }).show();
+
+    }
 }
