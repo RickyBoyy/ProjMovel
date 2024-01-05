@@ -1,5 +1,6 @@
 package pt.iade.ricardopereira.qrity_admin;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -68,7 +69,7 @@ public class Workers extends AppCompatActivity {
             Log.d("WorkersActivity", "Add Worker clicked");
 
             Intent intent = new Intent(Workers.this, SearchWorker.class);
-            startActivity(intent);
+            startActivityForResult(intent, SEARCH_WORKER_ACTIVITY_RETURN_ID);
             return true;
 
 
@@ -85,7 +86,7 @@ public class Workers extends AppCompatActivity {
         workersItemList.add(new WorkersItem("Pedro Oliveira", "Assistente", 3));
         workersItemList.add(new WorkersItem("Ana Costa", "Técnico", 4));
         workersItemList.add(new WorkersItem("Miguel Ferreira", "Pesquisador", 5));
-        workersItemList.add(new WorkersItem("Sofia Rocha", "Analista", 6));
+        workersItemList.add(new WorkersItem("Sofia Miranda", "Analista", 6));
         workersItemList.add(new WorkersItem("Carlos Pereira", "Engenheiro", 7));
 
         return workersItemList;
@@ -108,8 +109,10 @@ public class Workers extends AppCompatActivity {
                 // Use the data as needed
                 // For example, you might add a new WorkerItem to the list
                 if (names != null && cargos != null && names.length > 0 && cargos.length > 0) {
+
                     WorkersItem newWorker = new WorkersItem(names[0], cargos[0], 0); // You might want to provide a unique ID
                     workersAdapter.addItem(newWorker);
+                    workersAdapter.notifyDataSetChanged();
                 }
             }
         }

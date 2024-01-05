@@ -54,12 +54,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         holder.checkMark.setOnClickListener(v ->{
 
-                    Toast.makeText(context, "Cross Mark Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Permission Granted", Toast.LENGTH_SHORT).show();
                     // Add your logic here for handling the cross mark click
                     // For example, you can remove the item from the list
                     notificationItemList.remove(position);
                     notifyItemRemoved(position);
-
+                    notifyItemRangeChanged(position, notificationItemList.size());
 
                 }
 
@@ -68,11 +68,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         holder.crossMark.setOnClickListener(v -> {
 
-            Toast.makeText(context, "Cross Mark Clicked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show();
             // Add your logic here for handling the cross mark click
             // For example, you can remove the item from the list
             notificationItemList.remove(position);
             notifyItemRemoved(position);
+            notifyItemRangeChanged(position, notificationItemList.size());
         });
 
         // Add additional logic to bind other views if needed
@@ -121,4 +122,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         }
     }
 
+
 }
+

@@ -51,40 +51,50 @@ public class PermissionItem implements Serializable {
     public interface ListResponse {
         public void response(ArrayList<PermissionItem> items);
     }
-    public static void List(ListResponse response) {
-        ArrayList<PermissionItem> items = new ArrayList<PermissionItem>();
 
-        // Fetch a list of items from the web server and populate the list with them.
+    public static void List(PermissionItem.ListResponse response) {
+        ArrayList<PermissionItem> permissionItemsList = new ArrayList<>();
+
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    try {
-                        WebRequest req = new WebRequest(new URL(
-                                WebRequest.LOCALHOST + "/permissionList"));
-                        String resp = req.performGetRequest();
+                    WebRequest request = new WebRequest(new URL(WebRequest.LOCALHOST + "/api/permissiondoor/list"));
 
-                        // Get the array from the response.
-                        JsonObject json = new Gson().fromJson(resp, JsonObject.class);
-                        JsonArray arr = json.getAsJsonArray("items");
-                        ArrayList<PermissionItem> items = new ArrayList<PermissionItem>();
-                        for (JsonElement elem : arr) {
-                            items.add(new Gson().fromJson(elem, PermissionItem.class));
-                        }
+                    //WebRequest requestState =   new WebRequest(new URL(WebRequest.LOCALHOST + "/api/userChallenge/completed/user/" + user.getId() ));
 
-                        response.response(items);
-                    } catch (Exception e) {
-                        Toast.makeText(null, "Web request failed: " + e.toString(),
-                                Toast.LENGTH_LONG).show();
-                        Log.e("PermissionItem", e.toString());
+                    String resp = request.performGetRequest();
+
+                    //requestState.performGetRequest();
+
+                    Gson gson = new Gson();
+
+                    PermissionItem[] array = gson.fromJson(resp, PermissionItem[].class);
+
+                    //JsonObject json = new Gson().fromJson(resp,JsonObject.class);
+                    //JsonArray array = json.getAsJsonArray("items");
+
+
+                    ArrayList<PermissionItem> items = new ArrayList<>();
+
+
+                    for (PermissionItem elem : array) {
+
+                        items.add(elem);
                     }
+
+                    response.response(items);
+
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e("permissions", e.toString());
                 }
             }
         });
         thread.start();
     }
+
+
     public static void GetById(int id, GetByIdResponse response) {
         // Fetch the item from the web server using its id and populate the object.
         Thread thread = new Thread(new Runnable() {

@@ -2,6 +2,11 @@ package pt.iade.ricardopereira.qrity_admin.models;
 
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class NotificationItem {
 
     private String request;
@@ -68,4 +73,9 @@ public class NotificationItem {
     public void setArea(String area) {
         this.area = area;
     }
+
+
+
+
 }
+

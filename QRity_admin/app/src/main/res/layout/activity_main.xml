@@ -87,7 +87,7 @@
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/black"
                 android:hint="Password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:paddingStart="10dp" />
 
             <TextView

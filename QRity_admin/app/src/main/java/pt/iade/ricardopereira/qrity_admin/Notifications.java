@@ -32,7 +32,7 @@ public class Notifications extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        List<NotificationItem> notificationItemList = getSampleNotifications();
+        ArrayList<NotificationItem> notificationItemList = getSampleNotifications();
 
 
         notificationAdapter = new NotificationAdapter(this, getSampleNotifications());
@@ -42,8 +42,9 @@ public class Notifications extends AppCompatActivity {
 
 
     }
-    private List<NotificationItem> getSampleNotifications() {
-        List<NotificationItem> notificationItemList = new ArrayList<>();
+
+    private ArrayList<NotificationItem> getSampleNotifications() {
+        ArrayList<NotificationItem> notificationItemList = new ArrayList<>();
         notificationItemList.add(new NotificationItem("José Pinto", "Server Room", "Tech Office Building", 1));
         notificationItemList.add(new NotificationItem("Miguel Soares", "Rooftop", "Art Building", 2));
         notificationItemList.add(new NotificationItem("Gonçalo Santos", "Basement", "Main Building", 3));

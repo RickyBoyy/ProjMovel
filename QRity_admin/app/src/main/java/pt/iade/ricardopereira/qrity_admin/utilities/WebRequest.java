@@ -3,6 +3,7 @@ package pt.iade.ricardopereira.qrity_admin.utilities;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -191,4 +192,31 @@ public class WebRequest {
 
         return uri;
     }
+    public boolean verifyLogin(String username, String password) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("username", username);
+        params.put("password", password);
+
+        try {
+            String response = performPostRequest(params, null, "application/x-www-form-urlencoded");
+            // Parse the response and check if the login is successful based on your server's response.
+            // For example, you might expect a JSON response like {"success": true}.
+            // Adjust the parsing logic according to your server's response format.
+
+            // Sample parsing logic (modify as needed):
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
+
+            if (jsonObject.has("success") && jsonObject.get("success").getAsBoolean()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+
+
