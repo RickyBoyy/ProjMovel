@@ -1,15 +1,17 @@
 package pt.iade.ricardopereira.qrity_admin.models;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 
 import pt.iade.ricardopereira.qrity_admin.utilities.WebRequest;
 
-public class WorkersItem {
+public class WorkersItem implements Serializable {
     private String worker_name;
     private String role;
 
@@ -42,63 +44,89 @@ public class WorkersItem {
     public int getId() {
         return id;
     }
+
     public interface ListResponse {
         public void response(ArrayList<WorkersItem> items);
     }
-    public interface GetByIdResponse {
-        public void response(WorkersItem item);
-    }
 
-
-    public static void List(ListResponse response) {
-        //Fetch a list of items from the web server and populate the list with them
-        ArrayList<WorkersItem> items = new ArrayList<WorkersItem>();
+    public void save() {
+        // Send the object's data to our web server and update the database there.
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    WebRequest request = new WebRequest(new URL(WebRequest.LOCALHOST + "/permission/workers"));
+                    try {
+                        if (id == 0) {
+                            // This is a brand new object and must be a INSERT in the database.
+                            WebRequest req = new WebRequest(new URL(
+                                    WebRequest.LOCALHOST + "/api/workerdoor/new"));
+                            String response = req.performPostRequest(WorkersItem.this);
+
+                            // Get the new ID from the server's response.
+                            WorkersItem respItem = new Gson().fromJson(response, WorkersItem.class);
+                            id = respItem.getId();
+                        } else {
+                            // This is an update to an existing object and must use UPDATE in the database.
+                            WebRequest req = new WebRequest(new URL(
+                                    WebRequest.LOCALHOST + "/api/workers/" + id));
+                            req.performPostRequest(WorkersItem.this);
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(null, "Web request failed: " + e.toString(),
+                                Toast.LENGTH_LONG).show();
+                        Log.e("WorkerItem", e.toString());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }
+
+
+    public static void List(int doorLevel, ListResponse response) {
+        ArrayList<WorkersItem> workersItemsItemsList = new ArrayList<>();
+
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    WebRequest request = new WebRequest(new URL(WebRequest.LOCALHOST + "/api/workers/list"));
+
+                    //WebRequest requestState =   new WebRequest(new URL(WebRequest.LOCALHOST + "/api/userChallenge/completed/user/" + user.getId() ));
+
                     String resp = request.performGetRequest();
 
-                    //Get the array from the webserver's response
+                    //requestState.performGetRequest();
+
                     Gson gson = new Gson();
+
                     WorkersItem[] array = gson.fromJson(resp, WorkersItem[].class);
-                    //JsonArray array = new Gson().fromJson(resp, JsonArray.class);
-                    //Convert Json elements into NoteItem
-                    ArrayList<WorkersItem> items = new ArrayList<WorkersItem>();
+
+                    //JsonObject json = new Gson().fromJson(resp,JsonObject.class);
+                    //JsonArray array = json.getAsJsonArray("items");
+
+
+                    ArrayList<WorkersItem> items = new ArrayList<>();
+
+
                     for (WorkersItem elem : array) {
                         items.add(elem);
                     }
+
                     response.response(items);
 
                 } catch (Exception e) {
-                    Log.e("LogItem", e.toString());
+                    Log.e("workers", e.toString());
                 }
             }
         });
         thread.start();
     }
-    public static void GetById(int id, GetByIdResponse response) {
-        // Fetch the item from the web server using its id and populate the object
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    WebRequest request = new WebRequest(new URL(WebRequest.LOCALHOST + "/permissions/" + id));
-                    String resp = request.performGetRequest();
-
-                    WorkersItem item = new Gson().fromJson(resp, WorkersItem.class);
-                    response.response(item);
-
-                } catch (Exception e) {
-                    Log.e("WorkersItem", e.toString());
-                }
-            }
-        });
-        thread.start();
-    }
-
-
-
-
 }
+
+
+
+

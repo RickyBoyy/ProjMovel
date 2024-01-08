@@ -48,9 +48,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         NotificationItem notificationItem = notificationItemList.get(position);
 
         // Set the data to the views
-        holder.request.setText(notificationItem.getTitle());
-        holder.door.setText("Door: " + notificationItem.getDoor());
-        holder.area.setText("Area: " + notificationItem.getArea());
+        holder.request.setText(notificationItem.getRequest());
+
 
         holder.checkMark.setOnClickListener(v ->{
 
@@ -98,8 +97,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             super(itemView);
 
             request = itemView.findViewById(R.id.title_label);
-            door = itemView.findViewById(R.id.door_label);
-            area = itemView.findViewById(R.id.area_notification_name);
+
             checkMark = itemView.findViewById(R.id.check_mark);
             checkMark.setOnClickListener(new View.OnClickListener() {
                 @Override

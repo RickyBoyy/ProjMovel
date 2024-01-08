@@ -1,60 +1,25 @@
 package pt.iade.ricardopereira.qrity_admin.models;
 
-import android.widget.TextView;
-
+import android.util.Log;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import pt.iade.ricardopereira.qrity_admin.utilities.WebRequest;
 
 public class NotificationItem {
 
     private String request;
-
-    private String door;
-
-    private String area;
-
     private int id;
 
-
-
-
-
-
-    public NotificationItem(String request, String door, String area, int id){
-
+    public NotificationItem(String request, int id) {
         this.request = request;
-        this.door = door;
-        this.area = area;
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return request;
-    }
-
-    public void setTitle(String title) {
-        this.request = request;
-    }
-
-    public String getDoor() {
-        return door;
-    }
-
-    public void setDoor(String door) {
-        this.door = door;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-
-
-
-    public void setId(int id) {
         this.id = id;
     }
 
@@ -66,16 +31,58 @@ public class NotificationItem {
         this.request = request;
     }
 
-    public String getArea() {
-        return area;
+    public int getId() {
+        return id;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public interface ListResponse {
+        void response(ArrayList<NotificationItem> items);
+    }
+
+    public static void getNotifications(NotificationItem.ListResponse response) {
+        ArrayList<PermissionAreasItem> permissionItemsList = new ArrayList<>();
 
 
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    WebRequest request = new WebRequest(new URL(WebRequest.LOCALHOST + "/api/notifications/getUnauthorizedAccessNotifications"));
 
-}
+                    //WebRequest requestState =   new WebRequest(new URL(WebRequest.LOCALHOST + "/api/userChallenge/completed/user/" + user.getId() ));
+
+                    String resp = request.performGetRequest();
+
+                    //requestState.performGetRequest();
+
+                    Gson gson = new Gson();
+
+                        NotificationItem[] array = gson.fromJson(resp, NotificationItem[].class);
+
+                    //JsonObject json = new Gson().fromJson(resp,JsonObject.class);
+                    //JsonArray array = json.getAsJsonArray("items");
+
+
+                    ArrayList<NotificationItem> items = new ArrayList<>();
+
+
+                    for (NotificationItem elem : array) {
+
+                        items.add(elem);
+                    }
+
+                    response.response(items);
+
+                } catch (Exception e) {
+                    Log.e("permissions", e.toString());
+                }
+            }
+        });
+        thread.start();
+    }
+    }
 

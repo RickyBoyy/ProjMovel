@@ -51,7 +51,8 @@ public class PermissionAreasItem implements Serializable {
         public void response(ArrayList<PermissionAreasItem> items);
     }
 
-    public static void List(PermissionAreasItem.ListResponse response) {
+    public static void List( PermissionAreasItem.ListResponse response) {
+
         ArrayList<PermissionAreasItem> permissionItemsList = new ArrayList<>();
 
 

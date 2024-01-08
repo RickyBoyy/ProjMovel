@@ -1,37 +1,26 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/title_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
             android:text="Request"
-            android:layout_gravity="start" />
-
-        <TextView
-            android:id="@+id/door_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Door: Some Door"
-            android:layout_gravity="start" />
-        <TextView
-            android:id="@+id/area_notification_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Area: Some Area"
-            android:layout_gravity="start"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -54,7 +43,5 @@
             android:src="@drawable/close"
             android:contentDescription="Cross Mark" />
 
-
     </LinearLayout>
-
 </LinearLayout>

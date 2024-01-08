@@ -20,16 +20,28 @@ public class PermissionItem implements Serializable {
 
     private String door_name;
 
+    private int area_id;
+
+    private int door_level;
 
     private int id;
 
-    public PermissionItem(String door_name, int id){
+    public PermissionItem(String door_name, int id,int door_level){
+
+        this.door_level=door_level;
 
         this.door_name = door_name;
 
         this.id = id;
     }
 
+    public int getDoor_level() {
+        return door_level;
+    }
+
+    public void setDoor_level(int door_level) {
+        this.door_level = door_level;
+    }
 
     public String getDoor_name() {
         return door_name;
@@ -39,7 +51,17 @@ public class PermissionItem implements Serializable {
         this.door_name = door_name;
     }
 
+    public int getArea_id() {
+        return area_id;
+    }
 
+    public void setArea_id(int area_id) {
+        this.area_id = area_id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -53,7 +75,12 @@ public class PermissionItem implements Serializable {
     }
 
     public static void List(PermissionItem.ListResponse response) {
+        List(-1, response);
+    }
+
+    public static void List(int area_id,PermissionItem.ListResponse response){
         ArrayList<PermissionItem> permissionItemsList = new ArrayList<>();
+
 
 
         Thread thread = new Thread(new Runnable() {
@@ -80,8 +107,10 @@ public class PermissionItem implements Serializable {
 
 
                     for (PermissionItem elem : array) {
+                        if((area_id == -1)||(elem.area_id == area_id)) {
 
-                        items.add(elem);
+                            items.add(elem);
+                        }
                     }
 
                     response.response(items);
@@ -94,29 +123,4 @@ public class PermissionItem implements Serializable {
         thread.start();
     }
 
-
-    public static void GetById(int id, GetByIdResponse response) {
-        // Fetch the item from the web server using its id and populate the object.
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    try {
-                        WebRequest req = new WebRequest(new URL(
-                                WebRequest.LOCALHOST + "/permission/" + id));
-                        String resp = req.performGetRequest();
-
-                        response.response(new Gson().fromJson(resp, PermissionItem.class));
-                    } catch (Exception e) {
-                        Toast.makeText(null, "Web request failed: " + e.toString(),
-                                Toast.LENGTH_LONG).show();
-                        Log.e("TodoItem", e.toString());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
-    }
 }

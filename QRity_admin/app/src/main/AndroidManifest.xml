@@ -31,12 +31,14 @@
             android:exported="false" />
         <activity
             android:name=".Workers"
+            android:parentActivityName=".Permissions"
             android:exported="false" />
         <activity
             android:name=".Notifications"
             android:exported="false" />
         <activity
             android:name=".Permissions"
+            android:parentActivityName=".PermissionsAreas"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"

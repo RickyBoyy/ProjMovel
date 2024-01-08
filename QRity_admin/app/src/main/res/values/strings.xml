@@ -12,4 +12,5 @@
     <string name="tittle_statistics">Statistics</string>
     <string name="title_add_worker">Search Worker</string>
     <string name="permission_door">Doors</string>
+    <string name="permission_areas">Areas</string>
 </resources>

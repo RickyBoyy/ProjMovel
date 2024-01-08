@@ -7,7 +7,7 @@
     tools:context=".Permissions">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_permissions"
+        android:id="@+id/toolbar_permissionsareas"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/layout_name"
+        app:title="@string/permission_areas"
         app:titleTextColor="@color/black" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,6 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_permissions" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_permissionsareas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
