@@ -30,6 +30,7 @@ public class WorkerLog extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.log_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Log History");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.log_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
