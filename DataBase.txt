@@ -1,15 +1,14 @@
 create table utilizador (
 	utilizador_id int not null auto_increment primary key,
 	utilizador_name VARCHAR(50),
-	utilizador_password int not null
+	utilizador_password int not null,
+	utilizador_cargo VARCHAR(50),
+	utilizador_door_level int
+
                     
 );
 		     		     
-create table cargo(
-	cargo_id int not null auto_increment,
-	cargo_name VARCHAR(40) not null, 		
-	primary key (cargo_id)
-);
+
 		           
 create table limited_access (
 	limited_access_id int not null auto_increment primary key,
@@ -22,6 +21,7 @@ create table door (
 	door_id int not null auto_increment,
 	door_name varchar(40) not null,
     	door_area_id int,
+	door_level int
 	primary key (door_id)
 );
 		    
@@ -36,7 +36,6 @@ create table mapping (
 
 	map_id int not null auto_increment primary key,
     	user_id int,
-    	cargo_id int,
     	limited_access_id int
 
 );
@@ -44,14 +43,14 @@ create table mapping (
 create table area_connector(
 
 	mapping_id int not null,
-    area_id int not null
+    	area_id int not null
 
 
 );
 
 create table log_recorder(
 		
-        
+        log_id int not null auto_increment primary key,
         user_id int not null,
         door_id int not null,
 	log_time timestamp
@@ -65,12 +64,6 @@ create table log_recorder(
 ALTER TABLE mapping
 ADD CONSTRAINT mapping_fk_utilizador
 FOREIGN KEY (user_id) REFERENCES utilizador(utilizador_id)
-ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-
-ALTER TABLE mapping
-ADD CONSTRAINT mapping_fk_cargo
-FOREIGN KEY (cargo_id) REFERENCES cargo(cargo_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Foreign key for limited_access table
